@@ -1,0 +1,8 @@
+<div class="modal-window" *ngIf="show" [@onCloseModal]>
+  <div [@onShowShadow] class="modal-window__shadow"></div>
+  <div [@onShowWindow] (@onShowWindow.done)="animationComplete()" class="modal-window__content"
+       appClickOutside (clickOutside)="clickOutside()" [clickOutsideOn]="ready"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>

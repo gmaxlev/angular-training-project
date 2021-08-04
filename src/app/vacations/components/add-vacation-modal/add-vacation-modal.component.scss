@@ -1,0 +1,77 @@
+:host {
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  background-color: #fff;
+  display: block;
+}
+.add-vacation-modal__header {
+  background: #EAEAEA;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 30px;
+  & > span:nth-child(1) {
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 22px;
+    text-transform: capitalize;
+    color: #575757;
+  }
+  & > span:nth-child(2) {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: right;
+    color: #666666;
+  }
+}
+.add-vacation-modal__form {
+  padding: 15px 27.81px 22px 27.81px;
+}
+.add-vacation-modal__group {
+  margin-bottom: 20px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  & > h2 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: #000000;
+    margin-bottom: 6px;
+  }
+}
+
+.add-vacation-modal__dates {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.add-vacation-modal__date {
+  width: 50%;
+  margin-right: 32px;
+  & > p {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.add-vacation-modal__errors {
+  margin-bottom: 15px;
+  list-style: square outside;
+  padding: 0;
+  padding-left: 17px;
+  color: red;
+  line-height: 1.555;
+}
+
+.add-vacation-modal__success {
+  background-color: #b5ffb5;
+  margin-bottom: 10px;
+  padding: 10px;
+  color: #004418;
+}

@@ -1,0 +1,4 @@
+<div class="container">
+  <app-time-selector [date]="selectedDate$ | async" (prev)="changeMonth('prev')" (next)="changeMonth('next')"></app-time-selector>
+  <app-vacations-table [teams]="VacationsTeams$ | async" [calendar]="calendar$ | async" [vacationsTypes]="VacationsTypes$ | async"></app-vacations-table>
+</div>

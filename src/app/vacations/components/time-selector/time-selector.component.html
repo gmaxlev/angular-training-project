@@ -1,0 +1,4 @@
+<button (click)="prev.emit()" class='month-switcher__nav month-switcher__nav_prev'></button>
+<span class="month-switcher__current">{{date | date: 'MMMM YYYY'}}</span>
+<button (click)="next.emit()" class='month-switcher__nav month-switcher__nav_next'></button>
+

@@ -1,0 +1,43 @@
+<ng-container *ngIf="dates && team">
+  <tr class="Vacations-table__team-header" [ngClass]="COLOR_THEME_TYPES[team.colorTheme]">
+    <th class="Vacations-table__first-cell Vacations-table__first-cell-team">
+      <div>
+        <span class="Vacations-table__team-name">{{team.name}}</span>
+        <span class="Vacations-table__team-count">
+            <img src="../../../../assets/members.svg" alt="">
+            <span>{{team.countMembers}}</span>
+          </span>
+        <span class="Vacations-table__percentageOfAbsent">{{team.percentageOfAbsentOfMonth}}%</span>
+        <button (click)="toggleShow()" class="Vacations-table__team-toggle" [class.Vacations-table__team-toggle_hidden]="!(isShow$ | async)">
+          <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 6.00012L6 1.00012L1 6.00012" stroke="black"/>
+          </svg>
+        </button>
+      </div>
+    </th>
+    <th *ngFor="let item of dates" class="Vacations-table__cell" [class.Vacations-table__weekend]="item.isWeekend"></th>
+    <th class="Vacations-table__cell Vacations-table__cell-sum"></th>
+  </tr>
+  <ng-container *ngFor="let member of team.members; trackBy: trackCalendarMember">
+    <tr [hidden]="!(isShow$ | async)" [ngClass]="COLOR_THEME_TYPES[team.colorTheme]">
+      <td class="Vacations-table__first-cell Vacations-table__first-cell-member">
+        {{member.name}}
+      </td>
+      <td *ngFor="let item of dates" class="Vacations-table__cell"
+          [class.Vacations-table__weekend]="item.isWeekend"
+          [class.Vacations-table__mark]="member.vacationsDays[item.date.getDate()]"
+          [class.Vacations-table__mark_start]="member.vacationsDays[item.date.getDate()] && member.vacationsDays[item.date.getDate()].typeTime==='start'"
+          [class.Vacations-table__mark_end]="member.vacationsDays[item.date.getDate()] && member.vacationsDays[item.date.getDate()].typeTime==='end'"
+          [class.Vacations-table__mark_single]="member.vacationsDays[item.date.getDate()] && member.vacationsDays[item.date.getDate()].typeTime==='single'"
+      >
+        <ng-container *ngIf="member.vacationsDays[item.date.getDate()]">
+          <i></i>
+          <div *ngIf="member.vacationsDays[item.date.getDate()].text!==false" [style.width.px]="member.vacationsDays[item.date.getDate()].text.cells * 35 - 2">
+            {{member.vacationsDays[item.date.getDate()].text.text}}
+          </div>
+        </ng-container>
+      </td>
+      <td class="Vacations-table__cell Vacations-table__cell-sum Vacations-table__cell-sum_number">{{member.countDays}}</td>
+    </tr>
+  </ng-container>
+</ng-container>

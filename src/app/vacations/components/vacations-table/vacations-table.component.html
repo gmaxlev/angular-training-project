@@ -1,0 +1,47 @@
+<ng-container *ngIf="vacationsTypes">
+  <app-modal-window [show]="isShowModal$ | async" (closeModal)="toggleModalShow()">
+    <app-add-vacation-modal [teams]="teams" [vacationsTypes]="vacationsTypes"></app-add-vacation-modal>
+  </app-modal-window>
+  <ng-container *ngIf="calendar">
+    <table class="Vacations-table">
+      <tbody>
+      <tr class="Vacations-table__header-row">
+        <th class="Vacations-table__first-cell Vacations-table__header-cell-button">
+          <app-button (click)="toggleModalShow()">Add Vacation</app-button>
+        </th>
+        <th *ngFor="let item of calendar.dates" class="Vacations-table__cell Vacations-table__header-cell" [class.Vacations-table__weekend]="item.isWeekend">
+          <div>
+            <span>{{item.date | date: 'EE' | slice:0:2}}</span>
+            <span>{{item.date | date: 'd'}}</span>
+          </div>
+        </th>
+        <th class="Vacations-table__cell Vacations-table__cell-sum Vacations-table__cell-sum_header">Sum</th>
+      </tr>
+      </tbody>
+      <tbody class="Vacations-table__team" *ngFor="let team of calendar.teams; trackBy: trackCalendarTeams " app-vacation-table-team [team]="team" [dates]="calendar.dates"></tbody>
+      <tbody>
+      <tr class="Vacations-table__stats">
+        <td class="Vacations-table__first-cell Vacations-table__stats-header">Day-Person Stats</td>
+        <td *ngFor="let item of calendar.dates" class="Vacations-table__cell Vacations-table__cell_stats"
+            [class.Vacations-table__weekend]="item.isWeekend"
+        >
+          {{calendar.stats[item.date.getDate()] !==undefined ? calendar.stats[item.date.getDate()] : 0}}
+        </td>
+        <td class="Vacations-table__cell Vacations-table__cell_stats"></td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="Vacations-total">
+      <h3 class="Vacations-total__header">September teams Summary</h3>
+      <div class="Vacations-total__info">
+        <p class="Vacations-total__on">On vacation</p>
+        <p class="Vacations-total__members">
+          <img src="../../../../assets/members.svg" alt="">
+          <span>{{calendar.total.members}}</span>
+        </p>
+        <p class="Vacations-total__percent">{{calendar.total.percentageOfAbsent}}%</p>
+      </div>
+    </div>
+  </ng-container>
+
+</ng-container>

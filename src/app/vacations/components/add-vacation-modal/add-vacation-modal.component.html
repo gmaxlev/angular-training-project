@@ -1,0 +1,56 @@
+<h2 class="add-vacation-modal__header">
+  <span>Vacation Request</span>
+  <span>8 Days</span>
+</h2>
+<form action="" class="add-vacation-modal__form" [formGroup]="addVacationForm">
+  <p class="add-vacation-modal__success" *ngIf="successAdded">Vacations has added</p>
+  <div class="add-vacation-modal__group">
+    <h2>Dates</h2>
+    <div class="add-vacation-modal__group-content">
+      <div class="add-vacation-modal__dates">
+        <div class="add-vacation-modal__date">
+          <p>From</p>
+          <input type="date" formControlName="startDate" placeholder="yyyy/mm/dd">
+        </div>
+        <div class="add-vacation-modal__date">
+          <p>To</p>
+          <input type="date" formControlName="endDate" placeholder="yyyy/mm/dd">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="add-vacation-modal__group">
+    <h2>Team</h2>
+    <div class="add-vacation-modal__group-content">
+      <select formControlName="team">
+        <option *ngFor="let team of teams" [ngValue]="team.id">{{ team.name }}</option>
+      </select>
+    </div>
+  </div>
+  <div *ngIf="selectedTeam$ | async" class="add-vacation-modal__group">
+    <h2>Members</h2>
+    <div class="add-vacation-modal__group-content">
+      <select formControlName="member">
+        <option [ngValue]="null" disabled>Choose your profile</option>
+        <option *ngFor="let member of (selectedTeam$ | async).members" [ngValue]="member.id">{{ member.name }}</option>
+      </select>
+    </div>
+  </div>
+  <div *ngIf="vacationsTypes" class="add-vacation-modal__group">
+    <h2>Type</h2>
+    <div class="add-vacation-modal__group-content">
+      <select formControlName="type">
+        <option [ngValue]="null" disabled>Choose type of vacation</option>
+        <option *ngFor="let type of vacationsTypes" [ngValue]="type.key">{{ type.name }}</option>
+      </select>
+    </div>
+  </div>
+  <ul *ngIf="addVacationForm.errors && showErrors" class="add-vacation-modal__errors">
+    <li *ngFor="let error of objectKeys(addVacationForm.errors)">
+      {{errorsMessages[error]}}
+    </li>
+  </ul>
+  <div class="add-vacation-modal__group">
+    <button (click)="send()">Add</button>
+  </div>
+</form>

@@ -1,0 +1,37 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  margin-top: 35px;
+}
+.month-switcher__current {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #000;
+  width: 180px;
+}
+.month-switcher__nav {
+  width: 30px;
+  height: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 0;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: transform var(--transition-time);
+
+  &:hover {
+    transform: scale(1.5);
+  }
+}
+.month-switcher__nav_next {
+  background-image: url(../../../../assets/arrow-right.svg);
+}
+.month-switcher__nav_prev {
+  background-image: url(../../../../assets/arrow-left.svg);
+}

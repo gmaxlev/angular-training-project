@@ -1,0 +1,148 @@
+.Vacations-table {
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+
+.Vacations-table__cell {
+  border: 1px solid var(--color-borders);
+  vertical-align: middle;
+  width: 34px;
+  height: 34px;
+}
+
+.Vacations-table__header-cell-button {
+  vertical-align: top;
+  text-align: left;
+}
+
+.Vacations-table__header-cell {
+  width: 34px;
+  height: 64px;
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    & > span {
+      &:first-child {
+        font-size: 12px;
+        line-height: 18px;
+      }
+      &:last-child {
+        margin-top: 5px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 21px;
+      }
+    }
+  }
+}
+
+.Vacations-table__first-cell {
+  width: 260px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Vacations-table__cell-sum {
+  background-color: #F3F3F3;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.Vacations-table__cell-sum_header {
+  font-size: 12px;
+}
+
+
+.Vacations-table__team {
+  margin-bottom: 43px;
+  &::after {
+    content: "";
+    height: 34px;
+    display: table-row;
+  }
+}
+
+.Vacations-table__stats {
+  background: #F3F3F3;
+}
+
+.Vacations-table__stats-header {
+  vertical-align: middle;
+  padding-left: 24px;
+}
+
+.Vacations-table__cell_stats {
+  border-top: 0;
+  border-bottom: 0;
+  text-align: center;
+  vertical-align: middle;
+  &:last-child {
+    border-right: 0;
+  }
+}
+
+.Vacations-total {
+  margin-top: 29px;
+  max-width: 232px;
+}
+
+.Vacations-total__header {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  border-bottom: 1px solid #E2E2E2;
+  padding-bottom: 6px;
+}
+
+.Vacations-total__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 12px;
+}
+
+.Vacations-total__on {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.Vacations-total__percent {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  color: #FFFFFF;
+  background: #48BA46;
+  border-radius: 2px;
+  width: 42px;
+  text-align: center;
+  padding: 2.5px 0;
+  margin-right: 9px;
+}
+
+.Vacations-total__members {
+  display: inline-flex;
+  align-items: center;
+  margin-left: auto;
+  margin-right: 15px;
+  & > img {
+    margin-right: 2px;
+  }
+}
+
