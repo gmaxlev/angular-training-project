@@ -1,0 +1,8 @@
+:root {
+  --font-1: "Open Sans", sans-serif;
+  --transition-time: 0.3s;
+  --color-main: #48BA46;
+  --color-main---hover: #{darken(#48BA46, 10%)};
+  --color-main---focus: #{darken(#48BA46, 20%)};
+  --color-borders: #D7D7D7;
+}
